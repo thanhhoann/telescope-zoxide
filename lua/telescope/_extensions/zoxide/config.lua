@@ -15,7 +15,8 @@ local default_config = {
         vim.cmd.cd(selection.path)
       end,
       after_action = function(selection)
-        vim.notify("ZZZDirectory changed to " .. selection.path)
+        vim.notify("Directory changed to " .. selection.path)
+        builtin.find_files({ cwd = selection.path })
       end
     },
     ["<C-s>"] = { action = z_utils.create_basic_command("split") },
